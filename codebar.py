@@ -54,10 +54,18 @@ class Instructor(Member):
 
 keith = Student("Keith", "Loves codin")
 print(keith)
-
+ 
 
 
 class Workshop:
     def __init__(self, date, subject, instructors, students)
         self.date = date
-        self. 
+        self.subject = subject
+        self.instructors = [instructors]
+        self.students = [students]
+
+    
+    def add_participant(self, participant):
+        self.participant = participant
+
+
