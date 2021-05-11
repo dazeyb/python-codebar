@@ -58,7 +58,8 @@ print(keith)
 
 
 class Workshop:
-    def __init__(self, date, subject, instructors=[], students=[]):
+    def __init__(self, name, date, subject, instructors=[], students=[]):
+        self.name = name
         self.date = date
         self.subject = subject
         self.instructors = instructors
@@ -81,13 +82,10 @@ class Workshop:
 
 
     def __str__(self):
-        return f"{self.date} {self.subject} {''.join(map(str,self.instructors))} {''.join(map(str,self.students))}"
+        return f"{self.name} - {self.subject} - {self.date} with the instructors {''.join(map(str,self.instructors))} and students{''.join(map(str,self.students))}"
 
 
-
-
-
-workshop1 = Workshop('Today', 'Subject')
+workshop1 = Workshop('Workshop1', 'Today', 'Subject')
 
 workshop1.add_participant(keith)
 
