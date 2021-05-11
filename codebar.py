@@ -37,7 +37,7 @@ class Student(Member):
         print(f"{reason}")
 
     def __str__(self):
-        return f"{self.full_name} {self.reason}"
+        return f"The Member {self.full_name} gave this reason'{self.reason}'"
 
 
 
@@ -58,14 +58,38 @@ print(keith)
 
 
 class Workshop:
-    def __init__(self, date, subject, instructors, students)
+    def __init__(self, date, subject, instructors=[], students=[]):
         self.date = date
         self.subject = subject
-        self.instructors = [instructors]
-        self.students = [students]
+        self.instructors = instructors
+        self.students = students
+
 
     
     def add_participant(self, participant):
-        self.participant = participant
+        if isinstance(participant, Instructor):
+            self.instructors.append(participant)
 
+        elif isinstance(participant, Student):
+            self.students.append(participant)
+
+        else:
+            print("That is not a member")
+
+    def print_details(self):
+        print(f"The workshop is {self.date} and is about {self.subject}.")
+
+
+    def __str__(self):
+        return f"{self.date} {self.subject} {''.join(map(str,self.instructors))} {''.join(map(str,self.students))}"
+
+
+
+
+
+workshop1 = Workshop('Today', 'Subject')
+
+workshop1.add_participant(keith)
+
+print(workshop1)
 
